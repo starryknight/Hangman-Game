@@ -42,7 +42,6 @@ $(document).ready(function(){
             for (let i=0; i<currentWord.length;i++{
                 
                 if(letter===currentWord[i]){
-                
                 }
                 else{
                     
