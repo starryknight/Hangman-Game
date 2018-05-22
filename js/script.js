@@ -17,50 +17,56 @@ hidden-class.
 */
 
 
-const arrayOfWords = ["just", "cook", "reign", "bushes", "dark", "profuse", "uttermost", "coil", "snail", "sense", "trite", "divide", "fetch", "unadvised", "protective", "bike", "snow", "lake", "stop", "sort", "imminent", "waves", "dusty", "blade", "slave", "poke" , "duck", "parsimonious", "street"]//random words found on https://www.randomlists.com/random-words
+const arrayOfWords = ["just", "cook", "reign", "bushes", "dark", "profuse", "uttermost", "coil", "snail", "sense", "trite", "divide", "fetch", "unadvised", "protective", "bike", "snow", "lake", "stop", "sort", "imminent", "waves", "dusty", "blade", "slave", "poke", "duck", "parsimonious", "street"]//random words found on https://www.randomlists.com/random-words
 
-$(document).ready(function(){
-        
-        
+$(document).ready(function () {
+
+    function newGame (){    
+    const playWord = []
+    const currentWord =[]
+    function welcome(){
+    $('h3').html(" ")
+    }
+    }
+   
+    function start() {
+        $('h3').html('Thank you for choosing to play, please select a letter');
+        selectRandom();
+
+    }
+
+    function selectRandom() {
+        const selection = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)]
+         currentWord.push(selection.split(""))
         console.log(currentWord)
-        var playWord =[]
-    
+    }
 
-        
-        function welcome(){
-            $('h3').html('Thank you for choosing to play, please select a letter');
-            selectRandom();
+    function match() {
+        const letter = $('btn-dark').val
+        for (let i = 0; i < currentWord.length; i++) {
 
-        }
-        function selectRadom({
-            var selection = arrayOfWords[Math.floor(Math.random()*arrayOfWords.length)]
-            var currentWord = selection.toUppercase();
-
-        }
-        function match(){
-            var letter = $('btn-dark').val
-            for (let i=0; i<currentWord.length;i++{
-                
-                if(letter===currentWord[i]){
-                }
-                else{
-                    
-                }
+            if (letter === currentWord[i]) {
+                $('h2').html('letter+" "')
+            }
+            else {
+                $('h2').html('_')
 
             }
+
         }
+    }
 
 
 
     //----------------event listener----------------/
 
     // reset button
-    $('.btn-success').on('click',welcome())
+    $('.btn-success').on('click', start())
 
     // letter
-    $('btn-dark').on('click',match())
+    $('.btn-dark').on('click', match())
 });
 
 
- 
+
 
