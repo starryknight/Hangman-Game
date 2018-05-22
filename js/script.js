@@ -22,6 +22,7 @@ $(document).ready(function () {
     const arrayOfWords = ["KENYA", "UGANDA", "USA", "ENGLAND", "AUSTRALIA", "INDIA", "CHINA", "GERMANY", "RUSSIA", "TANZANIA", "LUXEMBOURG", "FRANCE", "JAMAICA", "COMOROS", "SCOTLAND", "IRELAND", "JORDAN", "LEBANON", "ISRAEL", "EGYPT", "NIGERIA", "waves", "dusty", "blade", "slave", "poke", "duck", "parsimonious", "street"]//random words found on https://www.randomlists.com/random-words
     const currentWord = []
 
+    
     function newGame() {
         console.log('insidenewgame')
         const playWord = []
@@ -40,23 +41,25 @@ $(document).ready(function () {
     }
 
     function selectRandom() {
-        const selection = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)]
-        currentWord.push(selection.split(""))
+        const currentWord = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)]
+       // currentWord.push(selection.split(""))
         $('h4').html()
         console.log(currentWord)
     }
 
     function match() {
-
-        currentWord.map
-        const letter = $('btn-dark').text
+        const text= this.id
+        console.log(text)
+        // currentWord.map
+        // const letter = $('btn-dark').text
         for (let i = 0; i < currentWord.length; i++) {
-
+        console.log('line54')
             if (letter === currentWord[i]) {
                 $('h2').html('letter+" "')
             }
             else {
                 $('h2').html('_')
+            this.disabled("true")
             }
         }
 
@@ -65,19 +68,21 @@ $(document).ready(function () {
     //     checkval = $('btn-dark').val
     //     if (checkval === currentWord[i])
             
-    // }
+    }
 
 
-    //----------------event listener----------------/
+    //----------------event listeners----------------/
 
     // reset button
    newGame()
+
     $('.btn-success').on('click', start)
 
     // letter
-    $('.btn-dark').on('click', isMatching)
+    $('.btn-dark').on('click', match)
+
+
+
 });
-
-
 
 
