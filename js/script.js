@@ -17,54 +17,65 @@ hidden-class.
 */
 
 
-const arrayOfWords = ["just", "cook", "reign", "bushes", "dark", "profuse", "uttermost", "coil", "snail", "sense", "trite", "divide", "fetch", "unadvised", "protective", "bike", "snow", "lake", "stop", "sort", "imminent", "waves", "dusty", "blade", "slave", "poke", "duck", "parsimonious", "street"]//random words found on https://www.randomlists.com/random-words
 
 $(document).ready(function () {
+    const arrayOfWords = ["KENYA", "UGANDA", "USA", "ENGLAND", "AUSTRALIA", "INDIA", "CHINA", "GERMANY", "RUSSIA", "TANZANIA", "LUXEMBOURG", "FRANCE", "JAMAICA", "COMOROS", "SCOTLAND", "IRELAND", "JORDAN", "LEBANON", "ISRAEL", "EGYPT", "NIGERIA", "waves", "dusty", "blade", "slave", "poke", "duck", "parsimonious", "street"]//random words found on https://www.randomlists.com/random-words
 
-    function newGame (){    
-    const playWord = []
-    const currentWord =[]
-    function welcome(){
-    $('h3').html(" ")
+    
+
+    function newGame() {
+        console.log('insidenewgame')
+        const playWord = []
+        const currentWord = []
+        $('h3').html(" ")
+        
     }
-    }
-   
+      
+
     function start() {
+        console.log("started!")
         $('h3').html('Thank you for choosing to play, please select a letter');
-        selectRandom();
-
+        // selectRandom();
+        const lives = 5
+        console.log(lives)
     }
 
     function selectRandom() {
         const selection = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)]
-         currentWord.push(selection.split(""))
+        currentWord.push(selection.split(""))
+        $('h4').html()
         console.log(currentWord)
     }
 
-    function match() {
-        const letter = $('btn-dark').val
-        for (let i = 0; i < currentWord.length; i++) {
+    // function match() {
 
-            if (letter === currentWord[i]) {
-                $('h2').html('letter+" "')
-            }
-            else {
-                $('h2').html('_')
+    //     currentWord.map
+    //     const letter = $('btn-dark').val
+    //     for (let i = 0; i < currentWord.length; i++) {
 
-            }
+    //         if (letter === currentWord[i]) {
+    //             $('h2').html('letter+" "')
+    //         }
+    //         else {
+    //             $('h2').html('_')
+    //         }
+    //     }
 
-        }
+    function isMatching() {
+        checkval = $('btn-dark').val
+        if (checkval === currentWord[i])
+            console.log('mess')
     }
-
 
 
     //----------------event listener----------------/
 
     // reset button
-    $('.btn-success').on('click', start())
+   newGame()
+    $('.btn-success').on('click', start)
 
     // letter
-    $('.btn-dark').on('click', match())
+    // $('.btn-dark').on('click', isMatching())
 });
 
 
