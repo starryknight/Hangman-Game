@@ -20,13 +20,12 @@ hidden-class.
 
 $(document).ready(function () {
     const arrayOfWords = ["KENYA", "UGANDA", "USA", "ENGLAND", "AUSTRALIA", "INDIA", "CHINA", "GERMANY", "RUSSIA", "TANZANIA", "LUXEMBOURG", "FRANCE", "JAMAICA", "COMOROS", "SCOTLAND", "IRELAND", "JORDAN", "LEBANON", "ISRAEL", "EGYPT", "NIGERIA", "waves", "dusty", "blade", "slave", "poke", "duck", "parsimonious", "street"]//random words found on https://www.randomlists.com/random-words
-
-    
+    const currentWord = []
 
     function newGame() {
         console.log('insidenewgame')
         const playWord = []
-        const currentWord = []
+        
         $('h3').html(" ")
         
     }
@@ -35,9 +34,9 @@ $(document).ready(function () {
     function start() {
         console.log("started!")
         $('h3').html('Thank you for choosing to play, please select a letter');
-        // selectRandom();
+        selectRandom();
         const lives = 5
-        console.log(lives)
+        
     }
 
     function selectRandom() {
@@ -47,25 +46,26 @@ $(document).ready(function () {
         console.log(currentWord)
     }
 
-    // function match() {
+    function match() {
 
-    //     currentWord.map
-    //     const letter = $('btn-dark').val
-    //     for (let i = 0; i < currentWord.length; i++) {
+        currentWord.map
+        const letter = $('btn-dark').text
+        for (let i = 0; i < currentWord.length; i++) {
 
-    //         if (letter === currentWord[i]) {
-    //             $('h2').html('letter+" "')
-    //         }
-    //         else {
-    //             $('h2').html('_')
-    //         }
-    //     }
+            if (letter === currentWord[i]) {
+                $('h2').html('letter+" "')
+            }
+            else {
+                $('h2').html('_')
+            }
+        }
 
-    function isMatching() {
-        checkval = $('btn-dark').val
-        if (checkval === currentWord[i])
-            console.log('mess')
-    }
+    // function isMatching() {
+        
+    //     checkval = $('btn-dark').val
+    //     if (checkval === currentWord[i])
+            
+    // }
 
 
     //----------------event listener----------------/
@@ -75,7 +75,7 @@ $(document).ready(function () {
     $('.btn-success').on('click', start)
 
     // letter
-    // $('.btn-dark').on('click', isMatching())
+    $('.btn-dark').on('click', isMatching)
 });
 
 
