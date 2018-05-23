@@ -46,10 +46,11 @@ $(document).ready(function () {
         
         console.log(currentWord + " line 45")
         for (let j=0; j<currentWord.length;j++){
-            checker.push("_ ")
-            match(currentWord,checker)
+            checker.push("_  ")
+            
         }
-        
+        console.log(checker)
+        match(currentWord, checker, this.id)
         $('h1').text(checker)
     }
 
@@ -60,24 +61,23 @@ $(document).ready(function () {
        
     }
 
-    function match(currentWord,checker) {
-       console.log(currentWord + "line 64")
-        const text= this.id
-        console.log(text)
-        
+    function match(currentWord, word, letter) {
+       
+        console.log("letter", letter)
+        // make a function for this loop to happen, call it like functionName (letter)
         for (let i = 0; i < currentWord.length; i++) {
-        console.log(currentWord+"line 70")
-        console.log(text)
-            if (text === currentWord[i]) {
-                console.log('hit')
-                checker[i]=text
+            
+            if (letter === currentWord[i]) {
+                word[i]=letter
             }
             else {
-                
-           
+                word[i]="_"
+
             }
         }
+        $('h1').text(word)
 
+        console.log(word)
     // function isMatching() {
         
     //     checkval = $('btn-dark').val
@@ -94,10 +94,29 @@ $(document).ready(function () {
     $('.btn-success').on('click', start)
 
     // letter
-    $('.btn-dark').on('click', match)
-
-
+    $('.btn-dark').on('click', function() {
+        console.log(this.id)
+        match(currentWord, checker, this.id)
+    })
 
 });
 
+// Create an array of all letters
+// loop through array and for each element of the array
+    // $('pageIdOrClassWhatever').append('<button id=element ></button>')
+    // add an on('click') to this button while still in the element of the loop, pass that function the currentWord, displayWord, and element, because element will equal what you wanted ID to equal and for some reason this.Id just isn't working for you
 
+// Create an array of words
+// When the window loads, randomly select a word from the array and make it current word as a string
+// Break down the string into an array
+// In a for loop, (using currentword.length) create a second array displayWord that starts out as an underscore for each letter of currentword
+// Player needs to be able to:
+    // Reset (pick a new word from the list to be currentword)
+    // Guess a letter (clicking a letter button checks to see if it matches any letter in the currentWord)
+        // If a letter matches, 
+            // Replace displayWord[i] with currentWord[i]
+            // Replace the $('displayWord').text with the new value of displayWord.toString()
+        // Else if letter does not match
+            // Add a part to hangman ICEBOX
+            // Remove letter from list of letters STRETCH GOAL/ICEBOX
+            // OR just tell user somehow that was incorrect maybe simplest option
