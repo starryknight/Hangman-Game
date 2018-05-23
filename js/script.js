@@ -89,8 +89,9 @@ $(document).ready(function () {
        
         $('h1').text(word)
         console.log(letter +'p')
-        var $pico = "#"+letter
-        ($pico).prop("disabled", true);
+        var $pico = "#" + letter
+        console.log($pico)
+        $($pico).prop("disabled", true);
         win()
     }
 
