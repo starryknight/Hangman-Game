@@ -24,6 +24,7 @@ $(document).ready(function () {
     const lives=0
     let checker=[]
     const playWord = []
+    const chances=[]
     
     function newGame() {
         console.log('insidenewgame')
@@ -38,7 +39,7 @@ $(document).ready(function () {
         console.log("started!")
         $('h3').html('Thank you for choosing to play, please select a letter');
         selectRandom();
-        const lives = 6
+        console.log('you have 6 lives remaining')
         // placeHolders()
         
         
@@ -47,7 +48,7 @@ $(document).ready(function () {
         
         console.log(currentWord + " line 45")
         for (let j=0; j<currentWord.length;j++){
-            checker.push("_  ")
+            checker.push("- ")
             
         }
         console.log(checker)
@@ -63,36 +64,45 @@ $(document).ready(function () {
     }
 
     function match(currentWord, word, letter) {
-       
+        
         console.log("letter", letter)
         // make a function for this loop to happen, call it like functionName (letter)
         for (let i = 0; i < currentWord.length; i++) {
             
             if (letter === currentWord[i]) {
-                word[i]=letter
+                word = word[i].replace(/word[i]/gi,letter)
             }
             else {
                 word[i]="_"
-
             }
+           
         }
+    
         $('h1').text(word)
 
         console.log(word)
+       
     // function isMatching() {
         
     //     checkval = $('btn-dark').val
     //     if (checkval === currentWord[i])
             
     }
-    function chances(){
+    function chanceCounter(){
+        //if chances < 6
+        //
+            if (chances.length>=6){
+                
+                $('h3').text('game over, thank you for participating, please try again')
+            }
+            
+        }
 //you have 6 chances, every time you take a chance, your remaining
 //chances reduce. with every iteration
 //when there are no chances remaining run end
-    }
-function end {
+function end() {
     //buttons deactivated
-    //
+    $( ".btn-dark" ).prop( "disabled", true );
 }
     //----------------event listeners----------------/
 
@@ -105,6 +115,8 @@ function end {
     $('.btn-dark').on('click', function() {
         console.log(this.id)
         match(currentWord, checker, this.id)
+        chances.push('x')
+        chanceCounter()
     })
 
 });
