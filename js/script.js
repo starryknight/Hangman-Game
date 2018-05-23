@@ -24,7 +24,7 @@ $(document).ready(function () {
     const lives = 0
     let checker = []
     const playWord = []
-    let chances = 0
+    let chances = 6
 
     function newGame() {
         console.log('insidenewgame')
@@ -84,7 +84,7 @@ $(document).ready(function () {
                 chances++
                 console.log('chances')
             }
-
+            console.log("chances"+chances)
         }
        
         $('h1').text(word)
@@ -111,7 +111,7 @@ $(document).ready(function () {
         //if chances < 6
         //
 
-        if (chances.length >= 6) {
+        if (chances >= 6) {
 
             $('h3').text('game over, thank you for participating, please try again')
         }
@@ -130,7 +130,8 @@ $(document).ready(function () {
     newGame()
 
     $('.btn-success').on('click', start)
-
+    
+    
     // letter
     $('.btn-dark').on('click', function () {
         console.log(this.id)
@@ -138,25 +139,9 @@ $(document).ready(function () {
 
         chanceCounter()
     })
+      // $('.btn-success').on('click', function () {
+    //     location.reload(true)
+    // })
 
 });
 
-// Create an array of all letters
-// loop through array and for each element of the array
-    // $('pageIdOrClassWhatever').append('<button id=element ></button>')
-    // add an on('click') to this button while still in the element of the loop, pass that function the currentWord, displayWord, and element, because element will equal what you wanted ID to equal and for some reason this.Id just isn't working for you
-
-// Create an array of words
-// When the window loads, randomly select a word from the array and make it current word as a string
-// Break down the string into an array
-// In a for loop, (using currentword.length) create a second array displayWord that starts out as an underscore for each letter of currentword
-// Player needs to be able to:
-    // Reset (pick a new word from the list to be currentword)
-    // Guess a letter (clicking a letter button checks to see if it matches any letter in the currentWord)
-        // If a letter matches, 
-            // Replace displayWord[i] with currentWord[i]
-            // Replace the $('displayWord').text with the new value of displayWord.toString()
-        // Else if letter does not match
-            // Add a part to hangman ICEBOX
-            // Remove letter from list of letters STRETCH GOAL/ICEBOX
-            // OR just tell user somehow that was incorrect maybe simplest option
