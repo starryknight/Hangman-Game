@@ -19,13 +19,15 @@ hidden-class.
 
 
 $(document).ready(function () {
-    const arrayOfWords = ["KENYA", "UGANDA", "USA", "ENGLAND", "AUSTRALIA", "INDIA", "CHINA", "GERMANY", "RUSSIA", "TANZANIA", "LUXEMBOURG", "FRANCE", "JAMAICA", "COMOROS", "SCOTLAND", "IRELAND", "JORDAN", "LEBANON", "ISRAEL", "EGYPT", "NIGERIA", "waves", "dusty", "blade", "slave", "poke", "duck", "parsimonious", "street"]//random words found on https://www.randomlists.com/random-words
-    const currentWord = []
-
+    const arrayOfWords = ["KENYA", "UGANDA", "USA", "ENGLAND", "AUSTRALIA", "INDIA", "CHINA", "GERMANY", "RUSSIA", "TANZANIA", "LUXEMBOURG", "FRANCE", "JAMAICA", "COMOROS", "SCOTLAND", "IRELAND", "JORDAN", "LEBANON", "ISRAEL", "EGYPT", "NIGERIA", "BRAZIL", "MEXICO", "URUGUAY", "CAMBODIA", "AFGHANISTAN", "JAPAN", "MALAYSIA", "SINGAPORE"]
+    let currentWord =""
+    const lives=0
+    let checker=[]
+    const playWord = []
     
     function newGame() {
         console.log('insidenewgame')
-        const playWord = []
+       
         
         $('h3').html(" ")
         
@@ -36,30 +38,43 @@ $(document).ready(function () {
         console.log("started!")
         $('h3').html('Thank you for choosing to play, please select a letter');
         selectRandom();
-        const lives = 5
+        const lives = 6
+        // placeHolders()
         
+    }
+    function placeHolders(currentWord){
+        
+        console.log(currentWord + " line 45")
+        for (let j=0; j<currentWord.length;j++){
+            checker.push("_ ")
+            match(currentWord,checker)
+        }
+        
+        $('h1').text(checker)
     }
 
     function selectRandom() {
-        const currentWord = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)]
+         currentWord = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)]
        // currentWord.push(selection.split(""))
-        $('h4').html()
-        console.log(currentWord)
+       placeHolders(currentWord)
+       
     }
 
-    function match() {
+    function match(currentWord,checker) {
+       console.log(currentWord + "line 64")
         const text= this.id
         console.log(text)
-        // currentWord.map
-        // const letter = $('btn-dark').text
+        
         for (let i = 0; i < currentWord.length; i++) {
-        console.log('line54')
-            if (letter === currentWord[i]) {
-                $('h2').html('letter+" "')
+        console.log(currentWord+"line 70")
+        console.log(text)
+            if (text === currentWord[i]) {
+                console.log('hit')
+                checker[i]=text
             }
             else {
-                $('h2').html('_')
-            this.disabled("true")
+                
+           
             }
         }
 
