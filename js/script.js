@@ -71,13 +71,12 @@ $(document).ready(function () {
 
     function match(currentWord, word, letter) {
 
-        console.log("letter", letter)
         // make a function for this loop to happen, call it like functionName (letter)
         for (let i = 0; i < currentWord.length; i++) {
 
             if (letter === currentWord[i]) {
                 word[i] = letter
-                //add to
+                
             }
 
             else {
@@ -110,8 +109,9 @@ $(document).ready(function () {
     function chanceCounter() {
         //if chances < 6
         //
-
-        if (chances >= 6) {
+console.log(words + "sjsjsjsjsjsjsjsjsjs")
+console.log(chances + "spspspspspspspsp")
+        if (chances >= words) {
 
             $('h3').text('game over, thank you for participating, please try again')
         }
@@ -139,9 +139,9 @@ $(document).ready(function () {
 
         chanceCounter()
     })
-      // $('.btn-success').on('click', function () {
-    //     location.reload(true)
-    // })
+      $('.btn-danger').on('click', function () {
+        location.reload(true)
+    })
 
 });
 
