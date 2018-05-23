@@ -58,7 +58,7 @@ $(document).ready(function () {
         if (checker == currentWord) {
             console.log(currentWord)
             console.log(checker)
-            console.log('you won')
+            
         }
     }
 
@@ -86,11 +86,11 @@ $(document).ready(function () {
             }
 
         }
-
-        console.log(chances + "--------line 88")
+       
         $('h1').text(word)
-
-        console.log(word)
+        console.log(letter +'p')
+        var $pico = "#"+letter
+        ($pico).prop("disabled", true);
         win()
     }
 
@@ -101,16 +101,16 @@ $(document).ready(function () {
         console.log("Checker Word", checkerWord)
         if (checkerWord == currentWord) {
             console.log("VICTORY")
-            $('h1').text('You won congratulations')
-
+            $('h1').text(currentWord + ' Yayyy! You won congratulations')
+            $(".btn-dark").prop("disabled", true);
         }
     }
-
 
     function chanceCounter() {
         //if chances < 6
         //
-        if (chances.length >= 10) {
+
+        if (chances.length >= 6) {
 
             $('h3').text('game over, thank you for participating, please try again')
         }
