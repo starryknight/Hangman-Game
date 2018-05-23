@@ -71,7 +71,7 @@ $(document).ready(function () {
     }
 
     function match(currentWord, word, letter) {
-
+            var countTimes = 0
         // make a function for this loop to happen, call it like functionName (letter)
         for (let i = 0; i < currentWord.length; i++) {
 
@@ -80,11 +80,15 @@ $(document).ready(function () {
                 
             }
 
-            else {
-                chances++
-                console.log('chances')
+            if(letter!==currentWord[i]){
+                countTimes++
+                if(countTimes>currentWord.length){
+                    chance++
+                }
+               
+            
+            console.log("chances" + chances)
             }
-            console.log("chances"+chances)
         }
         
        
@@ -110,17 +114,17 @@ $(document).ready(function () {
         
     }
 
-    function chanceCounter() {
-        //if chances < 6
-        //
+//     function chanceCounter() {
+//         //if chances < 6
+//         //
 
-console.log(chances + "spspspspspspspsp")
-        if (chances >= words) {
+// console.log(chances + "spspspspspspspsp")
+//         if (chances >= words) {
 
-            $('h3').text('game over, thank you for participating, please try again')
-        }
+//             $('h3').text('game over, thank you for participating, please try again')
+//         }
 
-    }
+//     }
     //you have 6 chances, every time you take a chance, your remaining
     //chances reduce. with every iteration
     //when there are no chances remaining run end
@@ -141,7 +145,7 @@ console.log(chances + "spspspspspspspsp")
         console.log(this.id)
         match(currentWord, checker, this.id)
 
-        chanceCounter()
+        // chanceCounter()
     })
       $('.btn-danger').on('click', function () {
         location.reload(true)
