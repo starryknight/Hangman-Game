@@ -39,7 +39,7 @@ $(document).ready(function () {
         console.log("started!")
         $('h3').html('Thank you for choosing to play, please select a letter');
         selectRandom();
-        console.log('you have 6 lives remaining')
+        
     }
 
     function placeHolders(currentWord) {
@@ -66,6 +66,7 @@ $(document).ready(function () {
         currentWord = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)]
         // currentWord.push(selection.split(""))
         placeHolders(currentWord)
+        
 
     }
 
@@ -85,6 +86,7 @@ $(document).ready(function () {
             }
             console.log("chances"+chances)
         }
+        
        
         $('h1').text(word)
         console.log(letter +'p')
@@ -92,6 +94,7 @@ $(document).ready(function () {
         console.log($pico)
         $($pico).prop("disabled", true);
         win()
+        
     }
 
     function win() {
@@ -104,12 +107,13 @@ $(document).ready(function () {
             $('h1').text(currentWord + ' Yayyy! You won congratulations')
             $(".btn-dark").prop("disabled", true);
         }
+        
     }
 
     function chanceCounter() {
         //if chances < 6
         //
-console.log(words + "sjsjsjsjsjsjsjsjsjs")
+
 console.log(chances + "spspspspspspspsp")
         if (chances >= words) {
 
