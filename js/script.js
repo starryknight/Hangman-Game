@@ -41,6 +41,7 @@ $(document).ready(function () {
         const lives = 6
         // placeHolders()
         
+        
     }
     function placeHolders(currentWord){
         
@@ -84,8 +85,15 @@ $(document).ready(function () {
     //     if (checkval === currentWord[i])
             
     }
-
-
+    function chances(){
+//you have 6 chances, every time you take a chance, your remaining
+//chances reduce. with every iteration
+//when there are no chances remaining run end
+    }
+function end {
+    //buttons deactivated
+    //
+}
     //----------------event listeners----------------/
 
     // reset button
