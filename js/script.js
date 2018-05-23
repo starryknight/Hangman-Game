@@ -40,7 +40,7 @@ $(document).ready(function () {
         $('h3').html('Thank you for choosing to play, please select a letter');
         selectRandom();
         console.log('you have 6 lives remaining')
-        // placeHolders()
+        
         
         
     }
@@ -48,7 +48,7 @@ $(document).ready(function () {
         
         console.log(currentWord + " line 45")
         for (let j=0; j<currentWord.length;j++){
-            checker.push("- ")
+            checker.push("-")
             
         }
         console.log(checker)
@@ -70,11 +70,10 @@ $(document).ready(function () {
         for (let i = 0; i < currentWord.length; i++) {
             
             if (letter === currentWord[i]) {
-                word = word[i].replace(/word[i]/gi,letter)
+                word[i]=letter
+                //add to
             }
-            else {
-                word[i]="_"
-            }
+           
            
         }
     
@@ -82,16 +81,18 @@ $(document).ready(function () {
 
         console.log(word)
        
-    // function isMatching() {
-        
-    //     checkval = $('btn-dark').val
-    //     if (checkval === currentWord[i])
+ function win(){
+     if(checker==currentWord){
+         $('h1').text('Yo won congratulations')
+
+     }
+ }
             
     }
     function chanceCounter(){
         //if chances < 6
         //
-            if (chances.length>=6){
+            if (chances.length>=10){
                 
                 $('h3').text('game over, thank you for participating, please try again')
             }
