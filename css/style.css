@@ -26,11 +26,11 @@ button {
     margin:auto;
 } */
 #hangPic{
-    background: url(../images/pic4.png);
+    background: url(../images/pic4.png) 100%;
+    border-radius: 5%;
+    background-position: cover;
     height:300px;
     width:200px;
-   
-   
     
 }
 .blocker{
