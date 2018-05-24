@@ -24,7 +24,7 @@ $(document).ready(function () {
     const lives = 0
     let checker = []
     const playWord = []
-    let chances = 6
+    let chances = 7
 
     function newGame() {
         console.log('insidenewgame')
@@ -39,7 +39,7 @@ $(document).ready(function () {
         console.log("started!")
         $('h3').html('Thank you for choosing to play, please select a letter');
         selectRandom();
-        
+
     }
 
     function placeHolders(currentWord) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
         if (checker == currentWord) {
             console.log(currentWord)
             console.log(checker)
-            
+
         }
     }
 
@@ -66,68 +66,51 @@ $(document).ready(function () {
         currentWord = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)]
         // currentWord.push(selection.split(""))
         placeHolders(currentWord)
-        
+
 
     }
 
     function match(currentWord, word, letter) {
-            var countTimes = 0
+        var countTimes = 0
         // make a function for this loop to happen, call it like functionName (letter)
         for (let i = 0; i < currentWord.length; i++) {
 
             if (letter === currentWord[i]) {
                 word[i] = letter
-                
-            }
-
-            if(letter!==currentWord[i]){
                 countTimes++
-                if(countTimes>currentWord.length){
-                    chance++
-                }
-               
-            
-            console.log("chances" + chances)
+            }
+
+            $('h1').text(word)
+            console.log(letter + 'p')
+            var $pico = "#" + letter
+            console.log($pico)
+            $($pico).prop("disabled", true);
+            win()
+
+        }
+        if (countTimes < 1) {
+            chances--
+            let chanceTally = "You have " + chances + " chances remaining"
+            $('h6').text(chanceTally)
+            if (chances < 1) {
+                $(".btn-dark").prop("disabled", true);
+
             }
         }
-        
-       
-        $('h1').text(word)
-        console.log(letter +'p')
-        var $pico = "#" + letter
-        console.log($pico)
-        $($pico).prop("disabled", true);
-        win()
-        
-    }
+        function win() {
+            let checkerWord = []
+            console.log("Current Word", currentWord)
+            checkerWord = checker.join("")
+            console.log("Checker Word", checkerWord)
+            if (checkerWord == currentWord) {
+                console.log("VICTORY")
+                $('h1').text(currentWord + ' Yayyy! You won congratulations')
+                $(".btn-dark").prop("disabled", true);
+            }
 
-    function win() {
-        let checkerWord = []
-        console.log("Current Word", currentWord)
-        checkerWord = checker.join("")
-        console.log("Checker Word", checkerWord)
-        if (checkerWord == currentWord) {
-            console.log("VICTORY")
-            $('h1').text(currentWord + ' Yayyy! You won congratulations')
-            $(".btn-dark").prop("disabled", true);
         }
-        
     }
-
-//     function chanceCounter() {
-//         //if chances < 6
-//         //
-
-// console.log(chances + "spspspspspspspsp")
-//         if (chances >= words) {
-
-//             $('h3').text('game over, thank you for participating, please try again')
-//         }
-
-//     }
-    //you have 6 chances, every time you take a chance, your remaining
-    //chances reduce. with every iteration
-    //when there are no chances remaining run end
+ 
     function end() {
         //buttons deactivated
         $(".btn-dark").prop("disabled", true);
@@ -138,8 +121,8 @@ $(document).ready(function () {
     newGame()
 
     $('.btn-success').on('click', start)
-    
-    
+
+
     // letter
     $('.btn-dark').on('click', function () {
         console.log(this.id)
@@ -147,7 +130,7 @@ $(document).ready(function () {
 
         // chanceCounter()
     })
-      $('.btn-danger').on('click', function () {
+    $('.btn-danger').on('click', function () {
         location.reload(true)
     })
 
