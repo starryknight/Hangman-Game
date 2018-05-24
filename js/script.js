@@ -18,7 +18,7 @@ hidden-class.
 
 
 
-$(document).ready(function () {
+$(document).ready(function () { // initializing jquery, note: used slim version that comes w/ bootstrap
     const arrayOfWords = ["KENYA", "UGANDA", "USA", "ENGLAND", "AUSTRALIA", "INDIA", "CHINA", "GERMANY", "RUSSIA", "TANZANIA", "LUXEMBOURG", "FRANCE", "JAMAICA", "COMOROS", "SCOTLAND", "IRELAND", "JORDAN", "LEBANON", "ISRAEL", "EGYPT", "NIGERIA", "BRAZIL", "MEXICO", "URUGUAY", "CAMBODIA", "AFGHANISTAN", "JAPAN", "MALAYSIA", "SINGAPORE"]
     let currentWord = ""
     const lives = 0
@@ -26,7 +26,7 @@ $(document).ready(function () {
     const playWord = []
     let chances = 7
 
-    function newGame() {
+    function newGame() { //function that loads at the beginning of a new window instance
         console.log('insidenewgame')
 
 
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
 
     function start() {
-        if(chances<1||currentWord.length>1){
+        if(chances<1||currentWord.length>1){//thisprevents more current words loading at each start
             $('h3').html('Please clear your screen to start a new game');
         }
         else{
@@ -95,7 +95,7 @@ $(document).ready(function () {
 
         }
         if (countTimes < 1) {
-            chances--
+            chances-- //The number of remaining chances before you fail
             let chanceTally = "You have " + chances + " chances remaining"
             $('h6').text(chanceTally)
             if (chances < 1) {

@@ -25,4 +25,10 @@ button {
     position:absolute;
     margin:auto;
 }
+#hangPic{
+    border:solid;
+    height:200px;
+    width: 100px;
+background: url ("../images/pic4.png");
+}
 
