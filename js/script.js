@@ -98,6 +98,8 @@ $(document).ready(function () { // initializing jquery, note: used slim version 
             chances-- //The number of remaining chances before you fail
             let chanceTally = "You have " + chances + " chances remaining"
             $('h6').text(chanceTally)
+            let picRevealer = (100-(100*(1/chances)))+"%"
+            $('.blocker').css("height", picRevealer)
             if (chances < 1) {
                 end()
 
