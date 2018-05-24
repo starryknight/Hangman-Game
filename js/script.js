@@ -1,4 +1,3 @@
-// var notification = alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
 
 
 /*User starts out with  
@@ -16,8 +15,6 @@ hidden-class.
 
 */
 
-
-
 $(document).ready(function () { // initializing jquery, note: used slim version that comes w/ bootstrap
     const arrayOfWords = ["KENYA", "UGANDA", "USA", "ENGLAND", "AUSTRALIA", "INDIA", "CHINA", "GERMANY", "RUSSIA", "TANZANIA", "LUXEMBOURG", "FRANCE", "JAMAICA", "COMOROS", "SCOTLAND", "IRELAND", "JORDAN", "LEBANON", "ISRAEL", "EGYPT", "NIGERIA", "BRAZIL", "MEXICO", "URUGUAY", "CAMBODIA", "AFGHANISTAN", "JAPAN", "MALAYSIA", "SINGAPORE"]
     let currentWord = ""
@@ -27,23 +24,22 @@ $(document).ready(function () { // initializing jquery, note: used slim version 
     let chances = 7
 
     function newGame() { //function that loads at the beginning of a new window instance
-        console.log('insidenewgame')
-
-
-        $('h3').html(" ")
+        
+        $('h3').html(" ")//
 
     }
 
 
     function start() {
-        if(chances<1||currentWord.length>1){//thisprevents more current words loading at each start
+        if (chances < 1 || currentWord.length > 1) {//thisprevents more current words loading at each start
             $('h3').html('Please clear your screen to start a new game');
         }
-        else{
-        console.log("started!")
-        $('h3').html('Thank you for choosing to play, please select a letter');
-        $('h1').text("")
-        selectRandom();
+
+        else {
+            console.log("started!")
+            $('h3').html('Thank you for choosing to play, please select a letter');
+            $('h1').text("")
+            selectRandom();
         }
 
     }
@@ -87,7 +83,6 @@ $(document).ready(function () { // initializing jquery, note: used slim version 
             }
 
             $('h1').text(word)
-            console.log(letter + 'p')
             var $pico = "#" + letter
             console.log($pico)
             $($pico).prop("disabled", true);
@@ -98,7 +93,7 @@ $(document).ready(function () { // initializing jquery, note: used slim version 
             chances-- //The number of remaining chances before you fail
             let chanceTally = "You have " + chances + " chances remaining"
             $('h6').text(chanceTally)
-            let picRevealer = (100-(100*(1/chances)))+"%"
+            let picRevealer = (100 - (100 * (1 / chances))) + "%"
             $('.blocker').css("height", picRevealer)
             if (chances < 1) {
                 end()
@@ -107,23 +102,21 @@ $(document).ready(function () { // initializing jquery, note: used slim version 
         }
         function win() {
             let checkerWord = []
-            console.log("Current Word", currentWord)
-            checkerWord = checker.join("")
-            console.log("Checker Word", checkerWord)
-            if (checkerWord == currentWord) {
-                console.log("VICTORY")
-                $('h1').text(' Yayyy! You won congratulations')
-               end()
-            }
 
+            checkerWord = checker.join("")
+
+            if (checkerWord == currentWord) {
+                $('h1').text(' Yayyy! You won congratulations')
+                end()
+            }
         }
     }
 
     function end() {
         //buttons deactivated
         $(".btn-dark").prop("disabled", true);
-        $('h3').text(currentWord+"Was the correct answer")
-        
+        $('h3').text(currentWord + " Was the correct answer")
+
     }
     //----------------event listeners----------------/
 
