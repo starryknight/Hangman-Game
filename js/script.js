@@ -130,8 +130,7 @@ $(document).ready(function () { // initializing jquery, note: used slim version 
     $('.btn-dark').on('click', function () {
         console.log(this.id)
         match(currentWord, checker, this.id)
-
-        // chanceCounter()
+        alertify.notify("You clicked on  &#9992  " + this.id)
     })
     $('.btn-danger').on('click', function () {
         location.reload(true)
