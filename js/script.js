@@ -36,8 +36,10 @@ $(document).ready(function () {
 
 
     function start() {
+        reload()
         console.log("started!")
         $('h3').html('Thank you for choosing to play, please select a letter');
+        $('h1').text("")
         selectRandom();
 
     }
@@ -53,6 +55,15 @@ $(document).ready(function () {
         match(currentWord, checker, this.id)
         $('h1').text(checker)
     }
+
+
+
+    function reload() {
+        location.reload(true)
+    }
+
+
+
 
     function win() {
         if (checker == currentWord) {
@@ -72,7 +83,7 @@ $(document).ready(function () {
 
     function match(currentWord, word, letter) {
         var countTimes = 0
-        // make a function for this loop to happen, call it like functionName (letter)
+
         for (let i = 0; i < currentWord.length; i++) {
 
             if (letter === currentWord[i]) {
@@ -93,7 +104,7 @@ $(document).ready(function () {
             let chanceTally = "You have " + chances + " chances remaining"
             $('h6').text(chanceTally)
             if (chances < 1) {
-                $(".btn-dark").prop("disabled", true);
+                end()
 
             }
         }
@@ -105,15 +116,17 @@ $(document).ready(function () {
             if (checkerWord == currentWord) {
                 console.log("VICTORY")
                 $('h1').text(currentWord + ' Yayyy! You won congratulations')
-                $(".btn-dark").prop("disabled", true);
+               end()
             }
 
         }
     }
- 
+
     function end() {
         //buttons deactivated
         $(".btn-dark").prop("disabled", true);
+        $('h3').text(currentWord+"Was the correct answer")
+        
     }
     //----------------event listeners----------------/
 
@@ -130,9 +143,7 @@ $(document).ready(function () {
 
         // chanceCounter()
     })
-    $('.btn-danger').on('click', function () {
-        location.reload(true)
-    })
+    $('.btn-danger').on('click', relaod)
 
 });
 
