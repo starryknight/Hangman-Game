@@ -36,11 +36,15 @@ $(document).ready(function () {
 
 
     function start() {
-        reload()
+        if(chances<1||currentWord.length>1){
+            $('h3').html('Please clear your screen to start a new game');
+        }
+        else{
         console.log("started!")
         $('h3').html('Thank you for choosing to play, please select a letter');
         $('h1').text("")
         selectRandom();
+        }
 
     }
 
@@ -55,15 +59,6 @@ $(document).ready(function () {
         match(currentWord, checker, this.id)
         $('h1').text(checker)
     }
-
-
-
-    function reload() {
-        location.reload(true)
-    }
-
-
-
 
     function win() {
         if (checker == currentWord) {
@@ -115,7 +110,7 @@ $(document).ready(function () {
             console.log("Checker Word", checkerWord)
             if (checkerWord == currentWord) {
                 console.log("VICTORY")
-                $('h1').text(currentWord + ' Yayyy! You won congratulations')
+                $('h1').text(' Yayyy! You won congratulations')
                end()
             }
 
@@ -143,7 +138,9 @@ $(document).ready(function () {
 
         // chanceCounter()
     })
-    $('.btn-danger').on('click', relaod)
+    $('.btn-danger').on('click', function () {
+        location.reload(true)
+    })
 
 });
 
