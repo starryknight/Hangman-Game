@@ -1,4 +1,4 @@
-##h1 Hangman-Game
+##H1 Hangman-Game
 ***
 This is a hangman game application designed by me. Please feel free to offer any feedback to improve it. 
 ***
