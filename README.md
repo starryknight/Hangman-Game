@@ -8,7 +8,8 @@ This game requires the player to guess the letters in a country's name. If you g
 ***
 #bitballoon
 ***
-confident-edison-2565af.bitballoon.com
+Enjoy playing my game here
+http://confident-edison-2565af.bitballoon.com
 ***
 
 ##h3trello(user story)
